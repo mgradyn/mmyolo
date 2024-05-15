@@ -173,6 +173,24 @@ class YOLOv8PAFPNDepthwise(YOLOv5PAFPN):
             norm_cfg=self.norm_cfg,
             act_cfg=self.act_cfg)
 
+    def build_downsample_layer(self, idx: int) -> nn.Module:
+        """build downsample layer.
+
+        Args:
+            idx (int): layer idx.
+
+        Returns:
+            nn.Module: The downsample layer.
+        """
+        return DepthwiseSeparableConvModule(
+            make_divisible(self.in_channels[idx], self.widen_factor),
+            make_divisible(self.in_channels[idx], self.widen_factor),
+            kernel_size=3,
+            stride=2,
+            padding=1,
+            norm_cfg=self.norm_cfg,
+            act_cfg=self.act_cfg)
+
     def build_bottom_up_layer(self, idx: int) -> nn.Module:
         """build bottom up layer.
 
