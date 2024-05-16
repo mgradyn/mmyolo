@@ -1,1 +1,1 @@
-albumentations --no-binary qudida,albumentations
+albumentations==1.4.4 --no-binary qudida,albumentations
