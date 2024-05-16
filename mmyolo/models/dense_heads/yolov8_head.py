@@ -95,7 +95,7 @@ class YOLOv8HeadDepthwiseModule(BaseModule):
         for i in range(self.num_levels):
             self.reg_preds.append(
                 nn.Sequential(
-                    DepthwiseSeparableConvModule(
+                    ConvModule(
                         in_channels=self.in_channels[i],
                         out_channels=reg_out_channels,
                         kernel_size=3,
@@ -117,7 +117,7 @@ class YOLOv8HeadDepthwiseModule(BaseModule):
                         kernel_size=1)))
             self.cls_preds.append(
                 nn.Sequential(
-                    DepthwiseSeparableConvModule(
+                    ConvModule(
                         in_channels=self.in_channels[i],
                         out_channels=cls_out_channels,
                         kernel_size=3,
