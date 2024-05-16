@@ -5,7 +5,8 @@ import torch.nn as nn
 from mmdet.utils import ConfigType, OptMultiConfig
 
 from mmyolo.registry import MODELS
-from .. import CSPLayerWithTwoConv
+from mmcv.cnn import DepthwiseSeparableConvModule
+from .. import CSPLayerWithTwoConv, CSPLayerWithTwoDepthwiseConv
 from ..utils import make_divisible, make_round
 from .yolov5_pafpn import YOLOv5PAFPN
 
