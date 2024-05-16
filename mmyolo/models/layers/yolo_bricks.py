@@ -1701,18 +1701,14 @@ class CSPLayerWithTwoDepthwiseConv(BaseModule):
             in_channels,
             2 * self.mid_channels,
             1,
-            dw_norm_cfg=norm_cfg,
-            pw_norm_cfg=norm_cfg,
-            dw_act_cfg=act_cfg
-            pw_act_cfg=act_cfg)
+            norm_cfg=norm_cfg,
+            act_cfg=act_cfg)
         self.final_conv = DepthwiseSeparableConvModule(
             (2 + num_blocks) * self.mid_channels,
             out_channels,
             1,
-            dw_norm_cfg=norm_cfg,
-            pw_norm_cfg=norm_cfg,
-            dw_act_cfg=act_cfg
-            pw_act_cfg=act_cfg)
+            norm_cfg=norm_cfg,
+            act_cfg=act_cfg)
 
         self.blocks = nn.ModuleList(
             DarknetDepthwiseBottleneck(
